@@ -27,10 +27,10 @@ class AccountTest {
     //BeforeEach and AfterEach execute for each method
     @BeforeEach
     void setup(TestInfo testInfo, TestReporter testReporter){
-        victoria = new User("Victoria", 22,"Justice","Dawn");
+        victoria = new User("","Victoria", 22,"Justice","Dawn");
         victoriaAccount = new Account(victoria, new BigDecimal("1000"));
 
-        selena = new User("Selena", 22,"Gomez","Marie");
+        selena = new User("","Selena", 22,"Gomez","Marie");
         selenaAccount = new Account(selena, new BigDecimal("1000"));
 
         testReporter.publishEntry("Tag: "+testInfo.getTags().toString());
@@ -58,7 +58,7 @@ class AccountTest {
     @DisplayName("Validating if the user name is equal to Taylor")//a description
     @Disabled//it ignores the test
     void account_name_is_equal_to_taylor(){
-        User user = new User("Taylor", 22,"Swift","Alison");
+        User user = new User("","Taylor", 22,"Swift","Alison");
         Account account = new Account(user, new BigDecimal("1000.1324"));
         String accountName = account.getUser().getName();
         assertEquals("Taylor", accountName);
@@ -66,7 +66,7 @@ class AccountTest {
 
     @Test
     void user_balance_is_equal_to_a_specific_amount_and_greater_than_zero(){
-        User user = new User("Sabrina Ann", 22,"Carpenter","Lynn");
+        User user = new User("","Sabrina Ann", 22,"Carpenter","Lynn");
         Account account = new Account(user, new BigDecimal("10.13"));
         //Dynamic message if the test fails
         assertNotNull(account.getBalance(), ()-> "The balance cannot be null");
@@ -77,7 +77,7 @@ class AccountTest {
     @Test
     @DisplayName("Test to compare two accounts")
     void old_account_equal_to_the_new_account(){
-        User user = new User("Selena", 22,"Gomez","Marie");
+        User user = new User("","Selena", 22,"Gomez","Marie");
         Account account = new Account(user, new BigDecimal("1000.21"));
         Account oldAccount = new Account(user, new BigDecimal("1000.21"));
         assertEquals(oldAccount, account);
@@ -208,7 +208,7 @@ class AccountTest {
     void account_name_is_equal_to_taylor_in_dev(){
         boolean isDev = "DEV".equals(System.getProperty("ENV"));
         assumingThat(isDev, () -> {
-            User user = new User("Taylor", 22,"Swift","Alison");
+            User user = new User("","Taylor", 22,"Swift","Alison");
             Account account = new Account(user, new BigDecimal("1000.1324"));
             String accountName = account.getUser().getName();
             assertEquals("Taylor", accountName);
@@ -222,7 +222,7 @@ class AccountTest {
         if(info.getCurrentRepetition() == 2){
             System.out.println("Do something in this test");
         }
-        User user = new User("Taylor", 22,"Swift","Alison");
+        User user = new User("","Taylor", 22,"Swift","Alison");
         Account account = new Account(user, new BigDecimal("1000.1324"));
         String accountName = account.getUser().getName();
         assertEquals("Taylor", accountName);
