@@ -19,28 +19,28 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 public class ExamServiceSpyTest {
 
-    @Spy
-    private ExamRepositoryImpl examRepositoryImpl;
+   @Spy
+   private ExamRepositoryImpl examRepositoryImpl;
 
-    @Spy
-    private QuestionRepositoryImpl questionRepositoryImpl;
+   @Spy
+   private QuestionRepositoryImpl questionRepositoryImpl;
 
-    @InjectMocks
-    private ExamServiceImpl examServiceImpl;
+   @InjectMocks
+   private ExamServiceImpl examServiceImpl;
 
-    @Test
-    void testSpy() {
-        List<String> questions = Collections.singletonList("arithmetic");
-        //Mockito.when(questionRepositoryImpl.findQuestionsById(anyLong())).thenReturn(questions);
-        doReturn(questions).when(questionRepositoryImpl).findQuestionsById(anyLong());
+   @Test
+   void testSpy() {
+      List<String> questions = Collections.singletonList("arithmetic");
+      //Mockito.when(questionRepositoryImpl.findQuestionsById(anyLong())).thenReturn(questions);
+      doReturn(questions).when(questionRepositoryImpl).findQuestionsById(anyLong());
 
-        Exam exam = examServiceImpl.finExamByNameWithAllTheQuestions("English").get();
-        assertEquals(1L, exam.getId());
-        assertEquals("English", exam.getName());
-        assertEquals(1, exam.getQuestions().size());
-        assertTrue(exam.getQuestions().contains("arithmetic"));
+      Exam exam = examServiceImpl.finExamByNameWithAllTheQuestions("English").get();
+      assertEquals(1L, exam.getId());
+      assertEquals("English", exam.getName());
+      assertEquals(1, exam.getQuestions().size());
+      assertTrue(exam.getQuestions().contains("arithmetic"));
 
-        verify(examRepositoryImpl).findAll();
-        verify(questionRepositoryImpl).findQuestionsById(anyLong());
-    }
+      verify(examRepositoryImpl).findAll();
+      verify(questionRepositoryImpl).findQuestionsById(anyLong());
+   }
 }
