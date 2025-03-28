@@ -1,15 +1,16 @@
-package com.technologyos.unittest.services;
+package com.technologyos.unittest.services.impl;
 
 import com.technologyos.unittest.models.Exam;
 import com.technologyos.unittest.repositories.ExamRepository;
 import com.technologyos.unittest.repositories.QuestionRepository;
+import com.technologyos.unittest.services.ExamService;
 import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
 
 @AllArgsConstructor
-public class ExamServiceImpl implements ExamService{
+public class ExamServiceImpl implements ExamService {
    private final ExamRepository examRepository;
    private final QuestionRepository questionRepository;
 
