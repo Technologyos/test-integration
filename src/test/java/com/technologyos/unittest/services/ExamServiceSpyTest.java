@@ -3,6 +3,7 @@ package com.technologyos.unittest.services;
 import com.technologyos.unittest.models.Exam;
 import com.technologyos.unittest.repositories.ExamRepositoryImpl;
 import com.technologyos.unittest.repositories.QuestionRepositoryImpl;
+import com.technologyos.unittest.services.impl.ExamServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
