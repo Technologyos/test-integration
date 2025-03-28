@@ -1,5 +1,6 @@
 package com.technologyos.unittest.services;
 
+import com.technologyos.unittest.services.impl.ExamServiceImpl;
 import com.technologyos.unittest.utils.ConstantsV;
 import com.technologyos.unittest.models.Exam;
 import com.technologyos.unittest.repositories.ExamRepository;
