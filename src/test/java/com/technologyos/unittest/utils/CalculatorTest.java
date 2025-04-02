@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 @DisplayName("Test math operations in Calculator class")
 class CalculatorTest {
    private Calculator calculator;
