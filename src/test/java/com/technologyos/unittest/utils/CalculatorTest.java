@@ -14,24 +14,39 @@ class CalculatorTest {
    private Calculator calculator;
 
    @BeforeAll
-   static void setup(){
-      System.out.println("Executing @BeforeAll method");
+   static void setupBeforeEachClass(){
+      System.out.println("@BeforeAll executes only once before all test methods execution in the class");
    }
 
    @AfterAll
    static void cleanup(){
-      System.out.println("Executing @AfterAll method.");
+      System.out.println("@AfterAll executes only once after all test methods execution in the class");
    }
 
    @BeforeEach
    void beforeEachTestMethod(){
       calculator = new Calculator();
-      System.out.println("Executing @BeforeEach method.");
+      System.out.println("@BeforeEach executes before the execution of each test method");
    }
 
    @AfterEach
    void afterEachTestMethod(){
       System.out.println("Executing @AfterEach method.");
+   }
+
+   @Test
+   void testEqualsAndNotEquals() {
+      assertEquals(6, calculator.add(2, 4), "2+4 must be 6");
+      assertNotEquals(6, calculator.add(1, 9), "1+9 must not be 6");
+   }
+
+   @Test
+   void testNullAndNotNull() {
+      String str1 = null;
+      String str2 = "myString";
+
+      assertNull(calculator.checkNull(str1), "Object should be null");
+      assertNotNull(calculator.checkNull(str2), "Object should not be null");
    }
 
    //test<System under test>_<Condition or state change>_<Expected result>
