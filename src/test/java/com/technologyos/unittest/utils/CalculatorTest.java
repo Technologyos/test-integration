@@ -5,6 +5,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.time.Duration;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Test math operations in Calculator class")
 class CalculatorTest {
    private Calculator calculator;
+   private Academy academy;
 
    @BeforeAll
    static void setupBeforeEachClass(){
@@ -26,6 +29,7 @@ class CalculatorTest {
 
    @BeforeEach
    void beforeEachTestMethod(){
+      academy = new Academy();
       calculator = new Calculator();
       System.out.println("@BeforeEach executes before the execution of each test method");
    }
@@ -36,12 +40,14 @@ class CalculatorTest {
    }
 
    @Test
+   @Order(1)
    void testEqualsAndNotEquals() {
       assertEquals(6, calculator.add(2, 4), "2+4 must be 6");
       assertNotEquals(6, calculator.add(1, 9), "1+9 must not be 6");
    }
 
    @Test
+   @Order(0)
    void testNullAndNotNull() {
       String str1 = null;
       String str2 = "myString";
@@ -105,5 +111,63 @@ class CalculatorTest {
          Arguments.of(54, 1, 53),
          Arguments.of(24, 1, 23)
       );
+   }
+
+   @DisplayName("Same and Not Same")
+   @Test
+   void testSameAndNotSame() {
+      String str = "academy2";
+
+      assertSame(academy.getAcademy(), academy.getAcademyDuplicate(), "Objects should refer to same object");
+      assertNotSame(str, academy.getAcademy(), "Objects should not refer to same object");
+   }
+
+   @DisplayName("True and False")
+   @Test
+   void testTrueFalse() {
+      int gradeOne = 10;
+      int gradeTwo = 5;
+
+      assertTrue(calculator.isGreater(gradeOne, gradeTwo), "This should return true");
+      assertFalse(calculator.isGreater(gradeTwo, gradeOne), "This should return false");
+   }
+
+   @DisplayName("Array Equals")
+   @Test
+   void testArrayEquals() {
+      String[] stringArray = {"A", "B", "C"};
+
+      assertArrayEquals(stringArray, academy.getFirstThreeLettersOfAlphabet(), "Arrays should be the same");
+   }
+
+   @DisplayName("Iterable equals")
+   @Test
+   void testIterableEquals() {
+      List<String> theList = List.of("aca", "de", "my");
+
+      assertIterableEquals(theList, academy.getAcademyInList(), "Expected list should be same as actual list");
+   }
+
+   @DisplayName("Lines match")
+   @Test
+   void testLinesMatch() {
+      List<String> theList = List.of("aca", "de", "my");
+
+      assertLinesMatch(theList, academy.getAcademyInList(), "Lines should match");
+   }
+
+   @DisplayName("Throws and Does Not Throw")
+   @Test
+   void testThrowsAndDoesNotThrow() {
+      assertThrows(Exception.class, () -> { calculator.throwException(-1); }, "Should throw exception");
+
+      assertDoesNotThrow(() -> { calculator.throwException(5); }, "Should not throw exception");
+   }
+
+   @DisplayName("Timeout")
+   @Test
+   void testTimeout() {
+      assertTimeoutPreemptively(Duration.ofSeconds(3), () -> { calculator.checkTimeout(); },
+         "Method should execute in 3 seconds");
    }
 }
