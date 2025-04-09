@@ -10,10 +10,12 @@ import java.util.List;
 
 @Repository
 public interface UsersRepository extends JpaRepository<UserEntity, Long> {
-    UserEntity findByEmail(String email);
-    UserEntity findByUserId(String userId);
-    UserEntity findByEmailEndsWith(String email);
+   UserEntity findByEmail(String email);
 
-    @Query("select user from UserEntity user where user.email like %:emailDomain")
-    List<UserEntity> findUsersWithEmailEndingWith(@Param("emailDomain") String emailDomain);
+   UserEntity findByUserId(String userId);
+
+   UserEntity findByEmailEndsWith(String email);
+
+   @Query("select user from UserEntity user where user.email like %:emailDomain")
+   List<UserEntity> findUsersWithEmailEndingWith(@Param("emailDomain") String emailDomain);
 }
