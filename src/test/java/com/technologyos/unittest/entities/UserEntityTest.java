@@ -16,7 +16,7 @@ class UserEntityTest {
    @Autowired
    private TestEntityManager testEntityManager;
 
-   UserEntity userEntity;
+   private UserEntity userEntity;
 
    @BeforeEach
    void setup() {
