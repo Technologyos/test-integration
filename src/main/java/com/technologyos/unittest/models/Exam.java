@@ -1,5 +1,6 @@
 package com.technologyos.unittest.models;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -8,9 +9,9 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 public class Exam {
-   @NonNull
+   @NotNull
    private Long id;
-   @NonNull
+   @NotNull
    private String name;
    private List<String> questions = new ArrayList<>();
 }
