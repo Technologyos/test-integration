@@ -20,7 +20,7 @@ public class UsersController {
    private final UsersService usersService;
 
    @PostMapping
-   public UserResponse createUser(@RequestBody @Valid UserDetailRequest userDetails) throws Exception {
+   public UserResponse createUser(@RequestBody @Valid UserDetailRequest userDetails) {
       ModelMapper modelMapper = new ModelMapper();
       UserDto userDto = new ModelMapper().map(userDetails, UserDto.class);
 
@@ -31,7 +31,7 @@ public class UsersController {
 
    @GetMapping
    public List<UserResponse> getUsers(@RequestParam(value = "page", defaultValue = "0") int page,
-                                  @RequestParam(value = "limit", defaultValue = "2") int limit) {
+                                      @RequestParam(value = "limit", defaultValue = "2") int limit) {
       List<UserDto> users = usersService.getUsers(page, limit);
 
       Type listType = new TypeToken<List<UserResponse>>() {}.getType();
