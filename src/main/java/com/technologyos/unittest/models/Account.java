@@ -1,6 +1,7 @@
 package com.technologyos.unittest.models;
 
 import com.technologyos.unittest.exceptions.InsufficientMoneyException;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -10,10 +11,10 @@ import java.math.BigDecimal;
 @EqualsAndHashCode
 public class Account {
    @EqualsAndHashCode.Include
-   @NonNull
+   @NotNull
    private User user;
    @EqualsAndHashCode.Include
-   @NonNull
+   @NotNull
    private BigDecimal balance;
    private Bank bank;
 
