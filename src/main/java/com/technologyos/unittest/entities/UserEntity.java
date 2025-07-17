@@ -8,13 +8,14 @@ import java.io.Serializable;
 
 @Entity
 @Data
-@Table(name="users")
+@Table(name = "users")
 public class UserEntity implements Serializable {
    @Serial
    private static final long serialVersionUID = 5313493413859894403L;
 
    @Id
-   @GeneratedValue
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Column(nullable = false)
    private long id;
 
    @Column(nullable = false, unique = true)
@@ -31,5 +32,4 @@ public class UserEntity implements Serializable {
 
    @Column(nullable = false)
    private String encryptedPassword;
-
 }
