@@ -3,7 +3,7 @@ package com.technologyos.unittest.services.impl;
 import com.technologyos.unittest.dtos.UserDto;
 import com.technologyos.unittest.entities.UserEntity;
 import com.technologyos.unittest.exceptions.UsersServiceException;
-import com.technologyos.unittest.repositories.UsersRepository;
+import com.technologyos.unittest.repositories.UserRepository;
 import com.technologyos.unittest.services.UsersService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -26,7 +26,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class UsersServiceImpl implements UsersService {
-   private final UsersRepository usersRepository;
+   private final UserRepository usersRepository;
    private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
 
