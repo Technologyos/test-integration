@@ -8,6 +8,8 @@ import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Type;
@@ -20,13 +22,14 @@ public class UsersController {
    private final UsersService usersService;
 
    @PostMapping
-   public UserResponse createUser(@RequestBody @Valid UserDetailRequest userDetails) {
+   public ResponseEntity<UserResponse> createUser(@RequestBody @Valid UserDetailRequest userDetails) {
       ModelMapper modelMapper = new ModelMapper();
       UserDto userDto = new ModelMapper().map(userDetails, UserDto.class);
 
       UserDto createdUser = usersService.createUser(userDto);
+      UserResponse userResponse = modelMapper.map(createdUser, UserResponse.class);
 
-      return modelMapper.map(createdUser, UserResponse.class);
+      return ResponseEntity.status(HttpStatus.CREATED).body(userResponse);
    }
 
    @GetMapping
