@@ -3,7 +3,7 @@ package com.technologyos.unittest.controllers;
 import com.technologyos.unittest.dtos.UserDto;
 import com.technologyos.unittest.dtos.request.UserDetailRequest;
 import com.technologyos.unittest.dtos.response.UserResponse;
-import com.technologyos.unittest.services.UsersService;
+import com.technologyos.unittest.services.UserService;
 import jakarta.validation.Valid;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -18,8 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/users")
-public class UsersController {
-   private final UsersService usersService;
+public class UserController {
+   private final UserService usersService;
 
    @PostMapping
    public ResponseEntity<UserResponse> createUser(@RequestBody @Valid UserDetailRequest userDetails) {
