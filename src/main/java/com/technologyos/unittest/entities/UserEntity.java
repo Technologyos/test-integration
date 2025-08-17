@@ -6,9 +6,9 @@ import lombok.Data;
 import java.io.Serial;
 import java.io.Serializable;
 
-@Entity
 @Data
 @Table(name = "users")
+@Entity
 public class UserEntity implements Serializable {
    @Serial
    private static final long serialVersionUID = 5313493413859894403L;
