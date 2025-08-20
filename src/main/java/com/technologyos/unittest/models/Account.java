@@ -18,6 +18,11 @@ public class Account {
    private BigDecimal balance;
    private Bank bank;
 
+   public Account(User user, BigDecimal balance) {
+      this.user = user;
+      this.balance = balance;
+   }
+
    public void debit(BigDecimal amount){
       BigDecimal newBalance = this.balance.subtract(amount);
       if (newBalance.compareTo(BigDecimal.ZERO) < 0){
