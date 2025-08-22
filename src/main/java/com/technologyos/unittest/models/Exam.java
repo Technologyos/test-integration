@@ -14,4 +14,9 @@ public class Exam {
    @NotNull
    private String name;
    private List<String> questions = new ArrayList<>();
+
+   public Exam(Long id, String name) {
+      this.id = id;
+      this.name = name;
+   }
 }
