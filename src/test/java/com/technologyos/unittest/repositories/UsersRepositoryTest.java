@@ -18,7 +18,7 @@ class UsersRepositoryTest {
    private TestEntityManager testEntityManager;
 
    @Autowired
-   private UsersRepository usersRepository;
+   private UserRepository usersRepository;
 
    private final String userId1 = UUID.randomUUID().toString();
    private final String userId2 = UUID.randomUUID().toString();
