@@ -13,7 +13,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-class UsersRepositoryTest {
+class UserRepositoryTest {
    @Autowired
    private TestEntityManager testEntityManager;
 
