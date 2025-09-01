@@ -13,9 +13,11 @@ public class Account {
    @EqualsAndHashCode.Include
    @NotNull
    private User user;
+
    @EqualsAndHashCode.Include
    @NotNull
    private BigDecimal balance;
+
    private Bank bank;
 
    public Account(User user, BigDecimal balance) {
