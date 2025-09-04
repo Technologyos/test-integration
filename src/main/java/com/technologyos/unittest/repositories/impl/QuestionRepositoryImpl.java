@@ -1,10 +1,11 @@
-package com.technologyos.unittest.repositories;
+package com.technologyos.unittest.repositories.impl;
 
+import com.technologyos.unittest.repositories.QuestionRepository;
 import com.technologyos.unittest.utils.ConstantsV;
 
 import java.util.List;
 
-public class QuestionRepositoryImpl implements QuestionRepository{
+public class QuestionRepositoryImpl implements QuestionRepository {
 
    @Override
    public List<String> findQuestionsById(Long id) {
