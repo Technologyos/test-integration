@@ -1,10 +1,11 @@
-package com.technologyos.unittest.repositories;
+package com.technologyos.unittest.repositories.impl;
 
 import com.technologyos.unittest.models.Exam;
+import com.technologyos.unittest.repositories.ExamRepository;
 import com.technologyos.unittest.utils.ConstantsV;
 import java.util.List;
 
-public class ExamRepositoryImpl implements ExamRepository{
+public class ExamRepositoryImpl implements ExamRepository {
    @Override
    public Exam save(Exam exam) {
       return ConstantsV.EXAM;
