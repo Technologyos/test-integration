@@ -9,8 +9,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class UsersServiceException extends RuntimeException {
-   public UsersServiceException(String message) {
+public class UserServiceException extends RuntimeException {
+   public UserServiceException(String message) {
       super(message);
    }
 }
