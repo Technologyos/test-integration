@@ -14,6 +14,6 @@ public class QuestionRepositoryImpl implements QuestionRepository {
 
    @Override
    public void saveQuestions(List<String> questions) {
-      System.out.println("Doing something..");
+      System.out.println("Doing something");
    }
 }
