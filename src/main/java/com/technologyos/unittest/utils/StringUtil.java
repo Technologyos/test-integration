@@ -8,8 +8,8 @@ public class StringUtil {
       }
 
       StringBuilder result = new StringBuilder();
-       result.append(String.valueOf(str).repeat(times));
+      result.append(String.valueOf(str).repeat(times));
 
-       return result.toString();
+      return result.toString();
     }
 }
