@@ -2,7 +2,7 @@ package com.technologyos.unittest.services.impl;
 
 import com.technologyos.unittest.dtos.UserDto;
 import com.technologyos.unittest.entities.UserEntity;
-import com.technologyos.unittest.exceptions.UsersServiceException;
+import com.technologyos.unittest.exceptions.UserServiceException;
 import com.technologyos.unittest.repositories.UserRepository;
 import com.technologyos.unittest.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
    public UserDto createUser(UserDto user) {
 
       if (usersRepository.findByEmail(user.getEmail()) != null){
-         throw new UsersServiceException("Record already exists");
+         throw new UserServiceException("Record already exists");
       }
 
       ModelMapper modelMapper = new ModelMapper();
