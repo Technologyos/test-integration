@@ -5,6 +5,7 @@ import com.technologyos.unittest.entities.UserEntity;
 import com.technologyos.unittest.exceptions.UserServiceException;
 import com.technologyos.unittest.repositories.UserRepository;
 import com.technologyos.unittest.services.UserService;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -24,7 +25,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
    private final UserRepository usersRepository;
    private final BCryptPasswordEncoder bCryptPasswordEncoder;
