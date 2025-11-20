@@ -6,7 +6,6 @@ public class PasswordUtil {
    }
 
    public static SecurityLevel validatePassword(String password) {
-
       if (password.length() < 8) {
          return SecurityLevel.WEAK;
       }
