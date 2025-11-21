@@ -7,9 +7,6 @@ public class StringUtil {
          throw new IllegalArgumentException("negative times not allowed");
       }
 
-      StringBuilder result = new StringBuilder();
-      result.append(String.valueOf(str).repeat(times));
-
-      return result.toString();
+      return String.valueOf(str).repeat(times);
     }
 }
