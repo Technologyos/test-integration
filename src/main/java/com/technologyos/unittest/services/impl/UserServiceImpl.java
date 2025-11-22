@@ -6,7 +6,6 @@ import com.technologyos.unittest.exceptions.UserServiceException;
 import com.technologyos.unittest.repositories.UserRepository;
 import com.technologyos.unittest.services.UserService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.BeanUtils;
@@ -29,7 +28,6 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
    private final UserRepository usersRepository;
    private final BCryptPasswordEncoder bCryptPasswordEncoder;
-
 
    @Override
    public UserDto createUser(UserDto user) {
