@@ -68,8 +68,9 @@ public class UserServiceImpl implements UserService {
    public UserDto getUser(String email) {
       UserEntity userEntity = usersRepository.findByEmail(email);
 
-      if (userEntity == null)
+      if (userEntity == null){
          throw new UsernameNotFoundException(email);
+      }
 
       UserDto returnValue = new UserDto();
       BeanUtils.copyProperties(userEntity, returnValue);
