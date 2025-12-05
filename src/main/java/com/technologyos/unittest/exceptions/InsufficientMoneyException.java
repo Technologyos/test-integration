@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class InsufficientMoneyException extends RuntimeException {
+
    public InsufficientMoneyException(String message){
       super(message);
    }
